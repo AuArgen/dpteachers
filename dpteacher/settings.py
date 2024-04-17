@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     "predmet.apps.PredmetConfig",
     "klass.apps.KlassConfig",
     "raspisanie.apps.RaspisanieConfig",
-    "baa.apps.BaaConfig"
+    "baa.apps.BaaConfig",
+    "klassteacher.apps.KlassteacherConfig"
 ]
 
 MIDDLEWARE = [
