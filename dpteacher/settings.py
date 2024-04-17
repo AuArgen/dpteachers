@@ -37,6 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "teacher.apps.TeacherConfig",
+    "children.apps.ChildrenConfig",
+    "predmet.apps.PredmetConfig",
+    "klass.apps.KlassConfig",
+    "raspisanie.apps.RaspisanieConfig",
+    "baa.apps.BaaConfig"
 ]
 
 MIDDLEWARE = [
