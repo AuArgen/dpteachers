@@ -4,4 +4,4 @@ from .models import *
 
 @admin.register(Saatar)
 class Admin(admin.ModelAdmin):
-    list_display = ('title', 'saat')
+    list_display = ('title', 'saat_start', 'saat_end')
