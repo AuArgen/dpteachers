@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     "raspisanie.apps.RaspisanieConfig",
     "baa.apps.BaaConfig",
     "klassteacher.apps.KlassteacherConfig",
-    "saatar.apps.SaatarConfig"
+    "saatar.apps.SaatarConfig",
+    "docchild.apps.DocchildConfig",
 ]
 
 MIDDLEWARE = [
