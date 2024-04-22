@@ -10,9 +10,9 @@ def generate_unique_filename(instance, filename):
 
 class News(models.Model):
     doc = models.FileField(upload_to=generate_unique_filename, blank=True, null=True, verbose_name='Документ')
-    image = models.ImageField(upload_to=generate_unique_filename, blank=True, null=True, verbose_name='Cүрөт')
-    title = models.CharField(max_length=100, blank=True, null=True, verbose_name='Тема')
-    description = models.TextField(null=True, blank=True, verbose_name='Кошумча маалымат')
+    image = models.ImageField(upload_to=generate_unique_filename, verbose_name='Cүрөт')
+    title = models.CharField(max_length=100, default="Тема", verbose_name='Тема')
+    description = models.TextField( default="Маалымат", verbose_name='Кошумча маалымат')
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

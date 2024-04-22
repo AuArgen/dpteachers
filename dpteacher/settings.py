@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "klassteacher.apps.KlassteacherConfig",
     "saatar.apps.SaatarConfig",
     "docchild.apps.DocchildConfig",
+    "news.apps.NewsConfig",
 ]
 
 MIDDLEWARE = [

@@ -30,8 +30,8 @@ class Teacher(models.Model):
 class DocTeacher(models.Model):
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, verbose_name='Мугалим тандоо ')
     doc = models.FileField(upload_to=generate_unique_filename, blank=True, null=True, verbose_name='Документ')
-    title = models.CharField(max_length=100, blank=True, null=True, verbose_name='Тема')
-    description = models.TextField(null=True, blank=True, verbose_name='Кошумча маалымат')
+    title = models.CharField(max_length=100, default="Тема", verbose_name='Тема')
+    description = models.TextField(null=True, default="Маалымат", verbose_name='Кошумча маалымат')
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
