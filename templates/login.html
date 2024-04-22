@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %} Кирүү {% endblock %}
+
+{% block content %}
+    <div class="container-fluid vh-100"
+         style="background: url('https://img.freepik.com/premium-photo/school-2d-cartoon-vector-illustration-white-background_889056-27459.jpg') no-repeat; background-size: cover; background-position: center;">
+        <div class="w-100 h-100" style="background: rgba(255,255,255,0.5)">
+            <div class="row justify-content-center h-100 align-items-center">
+                <form action="/login/" class="col-11 col-md-4 p-5 rounded px-0 bg-white border" method="post">
+                    <h4 class="text-center bg-light border-bottom p-3">
+                        Каттоодон өтүү
+                    </h4>
+                    {% if messages %}
+                        {% for error in messages %}
+                            <div class="div p-3">
+                                <div class="alert alert-danger">
+                                    {{ error.message }}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    <div class="input-group flex-nowrap p-3">
+                        <span class="input-group-text" id="addon-wrapping">
+                            <span class="fa fa-user"></span>
+                        </span>
+                        <input type="text" name="username" class="form-control" placeholder="Логин"
+                               aria-label="Username"
+                               aria-describedby="addon-wrapping" minlength="5" required>
+                    </div>
+                    {% csrf_token %}
+                    <div class="input-group flex-nowrap p-3">
+                        <span class="input-group-text" id="addon-wrapping">
+                            <span class="fa fa-lock"></span>
+                        </span>
+                        <input type="password" name="password" class="form-control" placeholder="Сыр сөз"
+                               aria-label="password"
+                               aria-describedby="addon-wrapping" minlength="5" required>
+                    </div>
+                    <button class="btn btn-primary px-4 m-3">Кирүү</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
