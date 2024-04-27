@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 from children.models import Child
 
@@ -23,3 +23,8 @@ def logins(request):
             return redirect('home')
         messages.error(request, 'Логин же пароль туура эмес')
     return render(request, 'login.html')
+
+
+def logouts(request):
+    logout(request)
+    return redirect('login')
