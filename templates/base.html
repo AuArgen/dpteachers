@@ -17,5 +17,21 @@
 <body>
 {% block content %}
 {% endblock %}
+<script>
+    let bgHoverDanger = document.querySelectorAll('.hover-text-danger');
+    bgHoverDanger.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            element.classList.add('text-white');
+            element.classList.add('bg-danger');
+        });
+
+        element.addEventListener('mouseleave', () => {
+            if (element.classList[0] !== 'active') {
+                element.classList.remove('text-white');
+                element.classList.remove('bg-danger');
+            }
+        });
+    });
+</script>
 </body>
 </html>
