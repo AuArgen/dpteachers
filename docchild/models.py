@@ -23,4 +23,4 @@ class DocChild(models.Model):
         verbose_name_plural = 'Окуучу маалыматы'
 
     def __str__(self):
-        return f' {self.child.user.first_name} {self.title} {self.description}'
+        return f' {self.child.child.first_name} {self.title} {self.description}'

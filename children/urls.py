@@ -4,4 +4,5 @@ from .views import *
 urlpatterns = [
     path('', home, name='children'),
     path('raspisanie/', raspisanie, name='children-raspisanie'),
+    path('doc/', document, name='children-document'),
 ]
