@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
-{% block title %}  Жадыбал окуучу баракчасы {% endblock %}
+{% block title %}  Жадыбал мугалим баракчасы {% endblock %}
 {% block content %}
     {% include 'child/header.html' %}
     <div class="container pt-5">
         <div class="row justify-content-between align-items-start">
             <div class="col-3 rounded border overflow-hidden p-0">
-                {% include 'child/left-menu.html' %}
+                {% include 'left-menu.html' %}
             </div>
             <div class="col-8">
                 <div class="container">
@@ -13,7 +13,7 @@
                         <div class="bg-danger rounded text-white col-12">
                             <h5 class="p-3">
                                 <i class="fa fa-list"></i>
-                                Жадыбал
+                                Муналимдин жадыбалы
                             </h5>
                         </div>
                         <div class="rounded border overflow-hidden col-12">
@@ -64,6 +64,7 @@
                             saatV: `{{ j.saat.saat_start }} - {{ j.saat.saat_end }}`,
                             sabak: `{{ j.predmet.title }}`,
                             mugalim: `{{ j.teacher.user.last_name }} {{ j.teacher.user.first_name }}`,
+                            klass: `{{ j.klass.title }}`,
                         },
                     {% endfor %}
                 ],
@@ -105,11 +106,11 @@
                 <div class="col-9">
 <h5 class="">
                        <span class="border-bottom">
-                          ${days[x][i].sabak}
+                          ${days[x][i].klass}
                        </span>
                        <br>
                        <span style="font-size: 0.9rem;">
-                        ${days[x][i].mugalim}
+                        ${days[x][i].sabak}
                        </span>
                     </h5>
                        </div>

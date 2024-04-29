@@ -40,7 +40,6 @@ def raspisanie(request):
 
 @login_required
 def document(request):
-    news = News.objects.all().order_by('-id')
     child = Child.objects.get(child=request.user)
     childDoc = DocChild.objects.filter(child=child).order_by('-id')
     context = {'childDoc': childDoc}
