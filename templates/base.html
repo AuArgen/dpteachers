@@ -23,10 +23,10 @@
         element.addEventListener('mouseenter', () => {
             element.classList.add('text-white');
             element.classList.add('bg-danger');
+            element.style.cursor = 'pointer';
         });
-
         element.addEventListener('mouseleave', () => {
-            if (element.classList[0] !== 'active') {
+            if (element.classList[element.classList.length-3] !== 'active') {
                 element.classList.remove('text-white');
                 element.classList.remove('bg-danger');
             }

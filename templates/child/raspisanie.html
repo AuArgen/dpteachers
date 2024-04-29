@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% block title %}  Жаңылыктар окуучу баракчасы {% endblock %}
+{% block content %}
+    {% include 'child/header.html' %}
+    <div class="container pt-5">
+        <div class="row justify-content-between align-items-start">
+            <div class="col-3 rounded border overflow-hidden p-0">
+                {% include 'child/left-menu.html' %}
+            </div>
+            <div class="col-8">
+                <div class="container">
+                    <div class="row gap-2 mb-5 pb-5">
+                        <div class="bg-danger rounded text-white col-12">
+                            <h5 class="p-3">
+                                <i class="fa fa-list"></i>
+                                Жадыбал
+                            </h5>
+                        </div>
+                        <div class="rounded border overflow-hidden col-12">
+                            <div class="container px-0">
+                                <div class="row px-0" id="raspisanie-nav">
+                                    <div class="col-2 py-3 hover-bg-danger text-center" onclick="changeDay(0)"
+                                         style="cursor: pointer;">
+                                        Дүйшөмбү
+                                    </div>
+                                    <div class="col-2 py-3 hover-bg-danger text-center" onclick="changeDay(1)"
+                                         style="cursor: pointer;">
+                                        Шейшемби
+                                    </div>
+                                    <div class="col-2 py-3 hover-bg-danger text-center" onclick="changeDay(2)"
+                                         style="cursor: pointer;">
+                                        Шаршемби
+                                    </div>
+                                    <div class="col-2 py-3 hover-bg-danger text-center" onclick="changeDay(3)"
+                                         style="cursor: pointer;">
+                                        Бейшемби
+                                    </div>
+                                    <div class="col-2 py-3 hover-bg-danger text-center" onclick="changeDay(4)"
+                                         style="cursor: pointer;">
+                                        Жума
+                                    </div>
+                                    <div class="col-2 py-3 hover-bg-danger text-center" onclick="changeDay(5)"
+                                         style="cursor: pointer;">
+                                        Ишемби
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-0" id="show-raspisanie"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let ras = document.querySelectorAll('#raspisanie-nav div');
+        let showRaspisanie = document.querySelector('#show-raspisanie');
+        let days = [
+            {% for i in raspisanie %}
+            	[
+                    {% for j in i %}
+                    	{
+                            saat: `{{ j.saat.title }}`,
+                            saatV: `{{ j.saat.saat_start }} - {{ j.saat.saat_end }}`,
+                            sabak: `{{ j.predmet.title }}`,
+                            mugalim: `{{ j.teacher.user.last_name }} {{ j.teacher.user.first_name }}`,
+                        },
+                    {% endfor %}
+                ],
+            {% endfor %}
+        ];
+        let lastRas = false;
+        leftMenu(1);
+
+        function changeDay(x) {
+            ras[x].classList.add('active');
+            ras[x].classList.add('text-white');
+            ras[x].classList.add('bg-danger');
+            if (lastRas) {
+                lastRas.classList.remove('active');
+                lastRas.classList.remove('text-white');
+                lastRas.classList.remove('bg-danger');
+            }
+            lastRas = ras[x];
+
+            showRaspisanie.innerHTML = '';
+            for (let i = 0; i < days[x].length; i++) {
+                showRaspisanie.innerHTML += `
+                        <div class="col-12 border rounded overflow-hidden px-0 mb-2">
+                            <div class="bg-light p-2">
+                                <div class="container">
+                                    <div class="row" id="show-raspisanie">
+                <div class="col-3">
+                    <h5 class="">
+                       <span class="border-bottom">
+                          ${days[x][i].saat}
+                       </span>
+                       <br>
+                       <span style="font-size: 0.9rem;">
+                        ${days[x][i].saatV}
+                       </span>
+                    </h5>
+                </div>
+    
+                <div class="col-9">
+<h5 class="">
+                       <span class="border-bottom">
+                          ${days[x][i].sabak}
+                       </span>
+                       <br>
+                       <span style="font-size: 0.9rem;">
+                        ${days[x][i].mugalim}
+                       </span>
+                    </h5>
+                       </div>
+                </div>
+                </div>
+                </div>
+                </div>
+
+            `
+            }
+            
+            if (days[x].length === 0) {
+                showRaspisanie.innerHTML = 'Сабак жок'
+            }
+        }
+        
+
+        changeDay(0);
+    </script>
+{% endblock %}
