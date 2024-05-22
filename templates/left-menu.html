@@ -4,15 +4,19 @@
 <div class="container">
     <div class="row p-0">
         <div class="col-12 p-0" id="left-menu">
-            <a href="/" class="d-block p-2 fs-5 hover-text-danger text-black" style="text-decoration: none;">
-               <i class="fa fa-home"></i>  Башкы бет
+           
+            {% for m in menu %}
+            {% if m.id == change_menu.id  %}
+            <a href="/?menu={{m.id}}" class="d-block bg-danger p-2 fs-5  text-light " style="text-decoration: none;">
+               <img src="{{m.icon.url}}" width="30px" height="30px"  alt=""> {{m.title}}
             </a>
-            <a href="/raspisanie/" class="d-block p-2 fs-5 hover-text-danger text-black" style="text-decoration: none;">
-                <i class="fa fa-bars"></i> Жадыбал
-            </a>
-            <a href="/doc/" class="d-block p-2 fs-5 hover-text-danger text-black" style="text-decoration: none;">
-                <i class="fa fa-book"></i> Маалыматтар
-            </a>
+            {% else  %}
+            <a href="/?menu={{m.id}}" class="d-block p-2 fs-5  text-black" style="text-decoration: none;">
+                <img src="{{m.icon.url}}" width="30px" height="30px"  alt=""> {{m.title}}
+             </a>
+            {% endif %}
+            
+           {% endfor %}
             <a href="/logout/" class="d-block p-2 fs-5 hover-text-danger text-black" style="text-decoration: none;">
                 <i class="fa fa-arrow-left"></i> Чыгуу
             </a>
@@ -20,11 +24,11 @@
     </div>
 </div>
 
-<script>
+<!-- <script>
     let a = document.querySelectorAll('#left-menu a');
     function leftMenu(x) {
         a[x].classList.add('active');
         a[x].classList.add('text-white');
         a[x].classList.add('bg-danger');
     }
-</script>
+</script> -->

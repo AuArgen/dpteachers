@@ -13,7 +13,7 @@ def generate_unique_filename(instance, filename):
 
 
 class Teacher(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='Мугалимдер')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Мугалимдер')
     predmet = models.ForeignKey(Predmet, on_delete=models.CASCADE, verbose_name='Предмет тандоо')
     phone = models.CharField(max_length=12, unique=True, verbose_name='Телефон номери')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Кошулган убакыт')

@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     "saatar.apps.SaatarConfig",
     "docchild.apps.DocchildConfig",
     "news.apps.NewsConfig",
+    'menu',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [

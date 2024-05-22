@@ -7,12 +7,26 @@ from children.models import Child
 from news.models import News
 from raspisanie.models import Raspisanie
 from teacher.models import Teacher, DocTeacher
+from menu.models import Menu
 
 
 @login_required
 def home(request):
+    menu=Menu.objects.all()
     news = News.objects.all().order_by('-id')
-    context = {'news': news}
+    change_menu = request.GET.get('menu')
+    avatar=Teacher.objects.get(user= request.user.id)
+    print(avatar.avatar)
+    
+    if change_menu:
+        change_menu = menu.get(id=int(change_menu))
+    else:
+        change_menu = menu[0]
+    context = {'news': news,
+               'menu' : menu,
+               'change_menu': change_menu,
+               'avatar': avatar
+               }
     return render(request, 'teacher.html', context)
 
 

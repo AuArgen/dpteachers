@@ -13,44 +13,12 @@
                         <div class="bg-danger rounded text-white col-12">
                             <h5 class="p-3">
                                 <i class="fa fa-info-circle"></i>
-                                Жаңылыктар
+                                {{change_menu.title}}
                             </h5>
                         </div>
-                        {% for i in news %}
                             <div class="col-12 border rounded overflow-hidden p-4">
-                                <div class="bg-light p-2">
-                                    <h5>
-                                        {{ i.title }}
-                                    </h5>
-                                </div>
-                                <div class="img bg-light rounded overflow-hidden d-flex justify-content-center">
-                                    <img src="{{ i.image.url }}"
-                                         style="max-width: 100%;" alt="">
-                                </div>
-                                <div class="bg-light p-2">
-                                    <span>
-                                        {{ i.description }}
-                                    </span>
-                                    <div class="d-flex py-2 justify-content-between align-items-center">
-                                        <div>
-                                            <i class="fa fa-file text-secondary"></i>
-                                            <b>
-                                                <a href="{{ i.doc.url }}" target="_blank"
-                                                   class="text-secondary">
-                                                    Документ
-                                                </a>
-                                            </b>
-                                        </div>
-                                        <div>
-                                            <i class="fa fa-clock text-secondary"></i>
-                                            <span>
-                                                {{ i.created_at }}
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
+                                {{change_menu.description | safe}}
                             </div>
-                        {% endfor %}
                     </div>
                 </div>
             </div>
