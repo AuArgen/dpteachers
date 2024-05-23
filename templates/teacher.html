@@ -16,7 +16,7 @@
                                 {{change_menu.title}}
                             </h5>
                         </div>
-                            <div class="col-12 border rounded overflow-hidden p-4">
+                            <div class="col-12 border rounded overflow-hidden p-4 d-block" style="min-width: 500px; overflow: auto;">
                                 {{change_menu.description | safe}}
                             </div>
                     </div>
@@ -25,6 +25,11 @@
         </div>
     </div>
     <script>
-        leftMenu(0);
+        {#leftMenu(0);#}
+        let trAll = document.querySelectorAll('tr');
+        for (const tr of trAll) {
+            console.log(tr)
+            tr.style.borderBottom = '1px solid black'
+        }
     </script>   
 {% endblock %}

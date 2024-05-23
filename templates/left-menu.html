@@ -8,11 +8,11 @@
             {% for m in menu %}
             {% if m.id == change_menu.id  %}
             <a href="/?menu={{m.id}}" class="d-block bg-danger p-2 fs-5  text-light " style="text-decoration: none;">
-               <img src="{{m.icon.url}}" width="30px" height="30px"  alt=""> {{m.title}}
+               <img src="{{m.icon.url}}" width="30px" height="30px" style="border-radius: 50%;" alt=""> {{m.title}}
             </a>
             {% else  %}
             <a href="/?menu={{m.id}}" class="d-block p-2 fs-5  text-black" style="text-decoration: none;">
-                <img src="{{m.icon.url}}" width="30px" height="30px"  alt=""> {{m.title}}
+                <img src="{{m.icon.url}}" width="30px" height="30px" style="border-radius: 50%;" alt=""> {{m.title}}
              </a>
             {% endif %}
             
